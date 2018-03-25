@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">DehariModule</string>
+    <string name="continueWithMobileNumber">Continue with Mobile Number</string>
+    <string name="continueWithFacebook">Continue With Facebook</string>
+    <string name="englishText">English</string>
+    <string name="urduText">Urdu</string>
+    <string name="verticalDash">|</string>
+    <string name="enterPhoneNumber">Enter Phone Number</string>
+    <string name="continueText">Continue</string>
+    <string name="phoneNumberHint">030012345678</string>
+    <string name="enterPassword">Enter Password</string>
+    <string name="newAccount">Welcome To Dehari</string>
+    <string name="newAccountDesc">You are new to Dehari, please complete your profile to continue</string>
+    <string name="createNewAccountButton">Create New Account</string>
+    <string name="createAccount">Create Account</string>
+    <string name="chooseAPicture">Choose A Picture</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirmPassword">Confirm Password</string>
 </resources>

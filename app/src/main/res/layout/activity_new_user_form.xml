@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.nfg.devlot.dehari.Activity.NewUserFormActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_back"
+            android:clickable="true"
+            android:id="@+id/backButton_forgotPassword_xml"
+            android:rotation="-90"
+            android:layout_margin="20dp"/>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toplayout_forgotPassword_xml"
+            android:layout_margin="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/createAccount"
+                android:textSize="18dp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/description_textView_enterPhone_xml"
+                android:textColor="@color/colorPrimary" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/default_placeholder_image"
+                android:id="@+id/profilePicture_userSignUp_xml"
+                app:civ_border_width="2dp"
+                app:civ_border_color="@color/colorPrimaryDark"
+                android:layout_below="@id/description_textView_enterPhone_xml"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profilePicture_userSignUp_xml"
+                android:text="@string/chooseAPicture"
+                android:textColor="@color/colorPrimary"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:id="@+id/choosePicture_textView_userSignUp_xml"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/choosePicture_textView_userSignUp_xml"
+                android:layout_marginTop="15dp"
+                android:hint="@string/name"
+                android:textSize="15dp"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:gravity="center"
+                android:id="@+id/name_editText_userSignUp_xml"
+                android:inputType="textPassword"
+                android:backgroundTint="@color/colorPrimaryDark"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/name_editText_userSignUp_xml"
+                android:layout_marginTop="10dp"
+                android:textSize="15dp"
+                android:hint="@string/email"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:gravity="center"
+                android:id="@+id/email_editText_userSignUp_xml"
+                android:inputType="textPassword"
+                android:backgroundTint="@color/colorPrimaryDark"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/email_editText_userSignUp_xml"
+                android:layout_marginTop="10dp"
+                android:hint="@string/password"
+                android:textSize="15dp"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:gravity="center"
+                android:id="@+id/password_editText_userSignUp_xml"
+                android:inputType="textPassword"
+                android:backgroundTint="@color/colorPrimaryDark"/>
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/password_editText_userSignUp_xml"
+                android:layout_marginTop="10dp"
+                android:textSize="15dp"
+                android:hint="@string/confirmPassword"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:gravity="center"
+                android:id="@+id/confirmPassword_editText_userSignUp_xml"
+                android:inputType="textPassword"
+                android:backgroundTint="@color/colorPrimaryDark"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/continueText"
+                android:background="@drawable/filled_btn"
+                android:layout_margin="10dp"
+                android:textColor="#ffffff" />
+
+        </RelativeLayout>
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:id="@+id/progressBar_forgotPassword_xml"/>
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
