@@ -6,5 +6,5 @@ package com.nfg.devlot.dehari.Models;
 
 public class URL {
 
-    public static final String CHECK_PHONE ="http://www.devlotech.com/dehari/seeker/check_phone.php";
+    public static final String CHECK_PHONE ="http://www.devlotech.com/dehari/seeker/";
 }

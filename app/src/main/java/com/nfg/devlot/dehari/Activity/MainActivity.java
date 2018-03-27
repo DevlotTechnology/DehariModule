@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         createView();
         initializeObject();
+
+        continueWithMobile_btn.setOnClickListener(this);
     }
 
 
