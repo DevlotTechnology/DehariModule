@@ -1,6 +1,10 @@
 package com.nfg.devlot.dehari.Retrofit;
 
+import android.support.annotation.Nullable;
+
 import com.nfg.devlot.dehari.Models.UserModel;
+
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -14,5 +18,5 @@ public interface RetrofitInterface {
 
     @POST("check_phone.php")
     @FormUrlEncoded
-    Call<UserModel> checkUserMobile(@Field("phone") String phone);
+    Call<String> checkUserMobile(@Field("phone") String phone);
 }
