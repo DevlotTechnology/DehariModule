@@ -1,18 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.nfg.devlot.dehari.MainActivity">
+    tools:context="com.nfg.devlot.dehari.Activity.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <!--<ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:src="@drawable/background_sec"
+            android:rotation="-180"/>-->
+
+        <RelativeLayout
+            android:id="@+id/toplayout_relativeLayout_main_xml"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10dp">
+
+
+            <Button
+                android:id="@+id/continueWithPhoneNumber_button_main_xml"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/filled_btn"
+                android:text="@string/continueWithMobileNumber"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/continueWithFacebook_textView_xml"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/continueWithPhoneNumber_button_main_xml"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="30dp"
+                android:layout_marginTop="12dp"
+                android:clickable="true"
+                android:text="@string/continueWithFacebook"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:id="@+id/urdu_textView_main_xml"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true"
+                android:text="@string/urduText"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:textStyle="bold"
+                android:id="@+id/dash_textView_main_xml"
+                android:layout_toStartOf="@+id/urdu_textView_main_xml"
+                android:layout_toLeftOf="@+id/urdu_textView_main_xml"
+                android:text="@string/verticalDash"/>
+
+            <TextView
+                android:id="@+id/english_textView_main_xml"
+                android:layout_width="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_toStartOf="@+id/dash_textView_main_xml"
+                android:layout_toLeftOf="@+id/dash_textView_main_xml"
+                android:layout_height="wrap_content"
+                android:text="@string/englishText"/>
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
