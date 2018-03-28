@@ -1,27 +1,18 @@
 package com.nfg.devlot.dehari.Activity;
 
-import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.nfg.devlot.dehari.Helpers.InputValidation;
-import com.nfg.devlot.dehari.Models.URL;
-import com.nfg.devlot.dehari.Models.UserModel;
 import com.nfg.devlot.dehari.R;
-import com.nfg.devlot.dehari.Retrofit.RetrofitApiClient;
-import com.nfg.devlot.dehari.Retrofit.RetrofitInterface;
 
 public class EnterPhoneActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -29,8 +20,7 @@ public class EnterPhoneActivity extends AppCompatActivity implements View.OnClic
     TextInputLayout     phone_textView;
     TextInputEditText   phone_editText;
     InputValidation     _refInputValidation;
-    RetrofitInterface   _refrofitApi;
-
+    RequestQueue        requestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -57,37 +47,7 @@ public class EnterPhoneActivity extends AppCompatActivity implements View.OnClic
                  *
                  * */
 
-                _refrofitApi = new RetrofitApiClient().getApiClient(URL.CHECK_PHONE).create(RetrofitInterface.class);
-                Call<String> networkingCall = _refrofitApi.checkUserMobile(phone_editText.getText().toString().trim());
 
-                if(networkingCall!=null)
-                {
-                    networkingCall.enqueue(new Callback<String>() {
-                        @Override
-                        public void onResponse(Call<String> call, Response<String> response) {
-
-                            if(response.isSuccessful())
-                            {
-                                Log.d("Res->",response.body());
-                                if (response.body().contains("true"))
-                                {
-                                    Toast.makeText(getApplicationContext(), "Mobile Number Exists", Toast.LENGTH_SHORT).show();
-                                }
-                                else if(response.body().trim().contains("false"))
-                                {
-                                    Toast.makeText(getApplicationContext(), "Mobile Number Do not exists", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-
-                        }
-
-                        @Override
-                        public void onFailure(Call<String> call, Throwable t) {
-                            Log.d("Error->",t.getMessage());
-                            Toast.makeText(getApplicationContext(),"There appears to be problem, Please try again later", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                }
 
             }
         }
@@ -110,6 +70,7 @@ public class EnterPhoneActivity extends AppCompatActivity implements View.OnClic
     private void initializeObject()
     {
         _refInputValidation = new InputValidation(this);
+        requestQueue = Volley.newRequestQueue(getApplicationContext());
     }
 
     private void createView()
