@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
 import com.nfg.devlot.dehari.Helpers.InputValidation;
 import com.nfg.devlot.dehari.R;
 
@@ -26,7 +25,7 @@ public class EnterPasswordActivity extends AppCompatActivity implements View.OnC
         createWidget();
         initialObjects();
 
-
+        continue_btn.setOnClickListener(this);
     }
 
 
@@ -40,6 +39,7 @@ public class EnterPasswordActivity extends AppCompatActivity implements View.OnC
     private void initialObjects()
     {
         _refInputValidation = new InputValidation(this);
+
     }
 
     @Override
@@ -54,6 +54,8 @@ public class EnterPasswordActivity extends AppCompatActivity implements View.OnC
                  * COMMUNICATION WITH DATABASE GOES HERE
                  *
                  * */
+
+
             }
         }
     }
