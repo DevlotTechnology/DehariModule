@@ -8,6 +8,8 @@ public class URL {
 
     public static final String MAIN_URL         ="http://www.devlotech.com/dehari/seeker/";
 
-    public static final String CHECK_PHONE      ="check_phone.php";
-    public static final String CHECK_PASSWORD   ="check_user.php";
+    public static final String CHECK_PHONE          = MAIN_URL+"check_phone.php";
+    public static final String CHECK_PASSWORD       = MAIN_URL+"check_user.php";
+    public static final String GET_ALL_CATEGORIES   = MAIN_URL+"get_category.php";
+    public static final String GET_SERVICES         = MAIN_URL+"get_services.php";
 }

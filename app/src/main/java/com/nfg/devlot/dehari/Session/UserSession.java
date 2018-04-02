@@ -10,6 +10,7 @@ public class UserSession {
     public static String uname;
     public static String uemail;
     public static String uPhone;
+    public static String imagePath;
 
 
     public static void ResetFunction()
