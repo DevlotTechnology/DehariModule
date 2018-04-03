@@ -94,7 +94,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
             if(v.getId() == R.id.parent_relativeLayout_list_row_layout)
             {
-                ((Activity) context).startActivity(new Intent(context, ServicesActivity.class));
+                Intent intent = new Intent(context,ServicesActivity.class);
+                intent.putExtra("categoryId", menuData.get(getAdapterPosition()).getCid());
+
+                context.startActivity(intent);
                 ((Activity) context).overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
             }
         }
