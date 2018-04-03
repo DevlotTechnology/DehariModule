@@ -31,7 +31,6 @@
             android:name=".Activity.NavigationDrawerActivity"
             android:label="@string/title_activity_navigation_drawer"
             android:theme="@style/AppTheme" />
-        <activity android:name=".Activity.ServicesActivity"></activity>
 
         <meta-data android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id"/>
@@ -50,6 +49,10 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
+      
+        <activity android:name=".Activity.ServicesActivity" />
+        <activity android:name=".Activity.WorkerProfileActivity"></activity>
+
     </application>
 
 </manifest>
