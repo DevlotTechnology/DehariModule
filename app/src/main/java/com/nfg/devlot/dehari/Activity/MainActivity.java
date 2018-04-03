@@ -8,12 +8,22 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+
+
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.nfg.devlot.dehari.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button    continueWithMobile_btn;
-    TextView  continueWithFacebook_btn;
+    LoginButton loginButton;
+    CallbackManager callbackManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,13 +34,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initializeObject();
 
         continueWithMobile_btn.setOnClickListener(this);
+        loginButton.setOnClickListener(this);
     }
 
 
     private void createView()
     {
         continueWithMobile_btn    = (Button) findViewById(R.id.continueWithPhoneNumber_button_main_xml);
-        continueWithFacebook_btn  = (TextView) findViewById(R.id.continueWithFacebook_textView_xml);
+        loginButton = (LoginButton) findViewById(R.id.login_button);
+        callbackManager = CallbackManager.Factory.create();
+
     }
 
 
@@ -47,9 +60,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(getApplicationContext(),EnterPhoneActivity.class));
             overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
         }
-        else if(v.getId() == R.id.continueWithFacebook_textView_xml)
+        else if(v.getId() == R.id.login_button)
         {
-            Toast.makeText(getApplicationContext(),"This Option is diabled by Senior Developer", Toast.LENGTH_SHORT).show();
+            loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+                @Override
+                public void onSuccess(LoginResult loginResult) {
+
+                }
+
+                @Override
+                public void onCancel() {
+
+                }
+
+                @Override
+                public void onError(FacebookException error) {
+                }
+            });
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        callbackManager.onActivityResult(requestCode,resultCode,data);
+        Intent intent = new Intent(MainActivity.this, NavigationDrawerActivity.class);
+        startActivity(intent);
     }
 }

@@ -34,8 +34,8 @@
                 android:text="@string/continueWithMobileNumber"
                 android:textColor="#ffffff" />
 
-            <TextView
-                android:id="@+id/continueWithFacebook_textView_xml"
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/login_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/continueWithPhoneNumber_button_main_xml"
@@ -43,8 +43,6 @@
                 android:layout_marginBottom="30dp"
                 android:layout_marginTop="12dp"
                 android:clickable="true"
-                android:text="@string/continueWithFacebook"
-                android:textColor="@color/colorPrimaryDark"
                 android:textSize="18dp" />
 
         </RelativeLayout>
