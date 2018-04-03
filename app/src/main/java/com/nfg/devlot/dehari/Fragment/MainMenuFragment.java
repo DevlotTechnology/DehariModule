@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -19,14 +18,14 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.nfg.devlot.dehari.Adapters.CategoryAdapter;
+import com.nfg.devlot.dehari.Adapters.WorkersAdapter;
 import com.nfg.devlot.dehari.Models.CategoryModel;
 import com.nfg.devlot.dehari.Models.URL;
+import com.nfg.devlot.dehari.Models.WorkersModel;
 import com.nfg.devlot.dehari.R;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -34,10 +33,13 @@ import java.util.Map;
 public class MainMenuFragment extends Fragment {
 
     RecyclerView                recyclerView;
-    LinearLayoutManager         layoutManager;
+    RecyclerView                recyclerViewWorkers;
+    LinearLayoutManager         layoutManager, layoutManagerWorkers;
     ArrayList<CategoryModel>    categoryArrayList;
+    ArrayList<WorkersModel>     workersArrayList;
     RequestQueue                requestQueue;
     CategoryAdapter             adapterObject;
+    WorkersAdapter              adapterWokersObject;
     SwipeRefreshLayout          swipeRefreshLayout;
 
 
@@ -51,7 +53,7 @@ public class MainMenuFragment extends Fragment {
 
         /**
          *
-         *  SWIPE TO REFRESH LISTENER GOES HERE
+         *  Swipe to refresh code goes here
          *  @func swipeToRefresh();
          *
          * */
@@ -60,14 +62,91 @@ public class MainMenuFragment extends Fragment {
 
         /**
          *
-         * COMMUNICATION WITH DATABASE GOES HERE
+         * Communicate with database here
          * @func getAllServices();
+         * @func getAllWorkers();
          *
          * */
 
         getAllServices();
+        getAllWorkers();
 
         return view;
+    }
+
+    private void getAllWorkers()
+    {
+        StringRequest request = new StringRequest(Request.Method.POST, URL.GET_PROVIDERS, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if(response.contains("noData"))
+                {
+                    Toast.makeText(getActivity(),"No Workers available", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                /**
+                 *
+                 *  Capturing response and parsing data
+                 *  @func capture_response_for_workers(String response);
+                 * */
+
+                capture_response_for_workers(response);
+
+                /**
+                 *
+                 *  Setting Adapter Data here
+                 *  @code adapterWokersObject.UpdateRecord(ArrayList<WorkerModel> data);
+                 * */
+
+                adapterWokersObject.UpdateRecord(workersArrayList);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getActivity(),"There Appears to be a problem. Please try again later",Toast.LENGTH_SHORT).show();
+            }
+        }){
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> parameters = new HashMap<String, String>();
+                parameters.put("c_id","");
+
+                return  parameters;
+            }
+        };
+
+        requestQueue.add(request);
+    }
+
+    private void capture_response_for_workers(String response)
+    {
+
+        try
+        {
+            JSONObject jsonObject = new JSONObject(response);
+            JSONArray  jsonArray = jsonObject.getJSONArray("providers");
+            for (int i = 0;i<jsonArray.length();i++)
+            {
+                WorkersModel _refModel = new WorkersModel();
+                JSONObject providers = jsonArray.getJSONObject(i);
+
+                _refModel.setId(providers.getString("sp_id"));
+                _refModel.setName(providers.getString("name"));
+                _refModel.setPhoneNumber(providers.getString("phone_number"));
+                _refModel.setAverage(providers.getString("avgrating"));
+                _refModel.setImagePath(providers.getString("image_path"));
+
+
+                workersArrayList.add(_refModel);
+
+            }
+        }
+        catch (JSONException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     private void swipeToRefresh() {
@@ -167,15 +246,21 @@ public class MainMenuFragment extends Fragment {
     private void initializeObjects()
     {
         categoryArrayList   = new ArrayList<>();
+        workersArrayList    = new ArrayList<>();
         requestQueue        = Volley.newRequestQueue(getActivity());
         layoutManager       = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
         adapterObject       = new CategoryAdapter(getActivity(),categoryArrayList);
+        adapterWokersObject = new WorkersAdapter(getActivity(),workersArrayList);
         recyclerView.setLayoutManager(layoutManager);
+        recyclerViewWorkers.setLayoutManager(layoutManagerWorkers);
+        recyclerView.setAdapter(adapterObject);
+        recyclerViewWorkers.setAdapter(adapterWokersObject);
     }
 
     private void createView(View view)
     {
         recyclerView        = (RecyclerView) view.findViewById(R.id.categories_recyclerView_mainMenu_xml);
+        recyclerViewWorkers = (RecyclerView) view.findViewById(R.id.recyclerView_topRatedWorkers_main_menu_xml);
         swipeRefreshLayout  = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefresh_main_menu_xml);
 
     }
