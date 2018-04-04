@@ -11,6 +11,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import com.nfg.devlot.dehari.Fragment.MainMenuFragment;
+import com.nfg.devlot.dehari.Fragment.NotificationsMenuFragment;
+import com.nfg.devlot.dehari.Fragment.SettingMenuFragment;
 import com.nfg.devlot.dehari.R;
 
 public class NavigationDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -62,18 +64,19 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if (id == R.id.nav_notification)
+        {
+            NotificationsMenuFragment _refFragment = new NotificationsMenuFragment();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragmentController,_refFragment);
+            fragmentTransaction.commit();
+        }
+        else if (id == R.id.nav_settings)
+        {
+            SettingMenuFragment _refSettingMenu = new SettingMenuFragment();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragmentController,_refSettingMenu);
+            fragmentTransaction.commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

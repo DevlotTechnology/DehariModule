@@ -41,4 +41,19 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="moreText">More</string>
     <string name="topRatedWorkers">Top Rated Workers</string>
+    <string name="Notification">Notification</string>
+    <string name="Settings">Setting</string>
+    <string name="logout">Logout</string>
+    <string name="termsAndConditions">Terms and Conditions</string>
+    <string name="appVerion">1.0.0</string>
+    <string name="appVersiontext">App Version</string>
+    <string name="about">About</string>
+    <string name="rateApp">Rate the App</string>
+    <string name="language">Language</string>
+    <string name="general">General</string>
+    <string name="changePassword">Change Password</string>
+    <string name="emailWoAddress">Email</string>
+    <string name="mobileNumber">Mobile Number</string>
+    <string name="profile">Profile</string>
+    <string name="enterNewPasswordDesc">Enter your new password, to update old password</string>
 </resources>

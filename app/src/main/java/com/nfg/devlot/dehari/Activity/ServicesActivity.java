@@ -6,8 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.Toast;
-
+import android.support.v7.widget.Toolbar;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -19,12 +20,9 @@ import com.nfg.devlot.dehari.Adapters.ServicesAdapter;
 import com.nfg.devlot.dehari.Models.ServicesModel;
 import com.nfg.devlot.dehari.Models.URL;
 import com.nfg.devlot.dehari.R;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.security.spec.KeySpec;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -37,6 +35,7 @@ public class ServicesActivity extends AppCompatActivity {
     RequestQueue                requestQueue;
     ArrayList<ServicesModel>    serviceArrayList;
     ServicesAdapter             adapter;
+    Toolbar                     LocalToolbar;
 
     String selectedCategoryid;
 
@@ -49,6 +48,14 @@ public class ServicesActivity extends AppCompatActivity {
         createView();
         initializeObjects();
 
+        /**
+         *
+         *
+         * Setting Support Action Bar code goes here
+         * @func SetSupportActionBarCode();
+         * */
+
+        SetSupportActionBarCode();
 
         /**
          *
@@ -67,6 +74,25 @@ public class ServicesActivity extends AppCompatActivity {
         swipeToRefresh();
 
 
+    }
+
+    private void SetSupportActionBarCode()
+    {
+        setSupportActionBar(LocalToolbar);
+
+        if(getSupportActionBar()!=null)
+        {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeButtonEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+
+        LocalToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void swipeToRefresh()
@@ -221,5 +247,6 @@ public class ServicesActivity extends AppCompatActivity {
     {
         recyclerView        = (RecyclerView) findViewById(R.id.recyclcerView_services_xml);
         swipeRefreshLayout  = (SwipeRefreshLayout) findViewById(R.id.swipeRefresh_services_xml);
+        LocalToolbar        = (Toolbar) findViewById(R.id.toolbar);
     }
 }

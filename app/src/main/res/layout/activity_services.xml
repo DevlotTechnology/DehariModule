@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.nfg.devlot.dehari.Activity.ServicesActivity">
+
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/swipeRefresh_services_xml">
 
-        <android.support.v7.widget.RecyclerView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/recyclcerView_services_xml">
+            android:layout_height="wrap_content">
 
-        </android.support.v7.widget.RecyclerView>
+            <include layout="@layout/menu_toolbar"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/toolbar"
+                android:id="@+id/recyclcerView_services_xml">
+
+            </android.support.v7.widget.RecyclerView>
+        </RelativeLayout>
+
 
     </android.support.v4.widget.SwipeRefreshLayout>
 
