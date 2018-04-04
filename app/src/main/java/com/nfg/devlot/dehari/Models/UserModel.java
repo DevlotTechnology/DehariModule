@@ -14,6 +14,9 @@ public class UserModel {
     private String phone_number;
     private String imagePath;
 
+
+    public UserModel() {}
+
     public UserModel(String uid, String ss_id, String name, String email, String phone_number, String imagePath) {
         this.name = name;
         this.uid = uid;

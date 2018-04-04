@@ -23,7 +23,6 @@
         </activity>
         <activity android:name=".Activity.EnterPhoneActivity" />
         <activity android:name=".Activity.EnterPasswordActivity" />
-        <activity android:name=".Activity.NewUserFormActivity" />
         <activity android:name=".Activity.WelcomeNewUserActivity" />
         <activity android:name=".Activity.ForgotPasswordActivity" />
         <activity
@@ -53,7 +52,8 @@
         </activity>
         <activity android:name=".Activity.ServicesActivity" />
         <activity android:name=".Activity.WorkerProfileActivity" />
-        <activity android:name=".Activity.ChangePasswordMenuActivity"></activity>
+        <activity android:name=".Activity.ChangePasswordMenuActivity" />
+        <activity android:name=".Activity.NewUserSignUpActivity"></activity>
     </application>
 
 </manifest>

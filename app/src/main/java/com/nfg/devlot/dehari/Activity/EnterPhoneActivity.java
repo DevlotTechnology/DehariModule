@@ -57,19 +57,21 @@ public class EnterPhoneActivity extends AppCompatActivity implements View.OnClic
 
                 StringRequest request = new StringRequest(Request.Method.POST, URL.CHECK_PHONE, new Response.Listener<String>() {
                     @Override
-                    public void onResponse(String response) {
-
-                        if(response.contains("false"))
-                        {
-                            Toast.makeText(getApplicationContext(),"Incorrect Password",Toast.LENGTH_SHORT).show();
-                            return;
-                        }
+                    public void onResponse(String response)
+                    {
 
                         UserSession.uPhone      =   phone_editText.getText().toString().trim();
 
-                        startActivity(new Intent(getApplicationContext(),EnterPasswordActivity.class));
-                        overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
-
+                        if(response.contains("false"))
+                        {
+                            startActivity(new Intent(getApplicationContext(),NewUserSignUpActivity.class));
+                            overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
+                        }
+                        else if(response.contains("true"))
+                        {
+                            startActivity(new Intent(getApplicationContext(),EnterPasswordActivity.class));
+                            overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
+                        }
                     }
                 }, new Response.ErrorListener() {
                     @Override
