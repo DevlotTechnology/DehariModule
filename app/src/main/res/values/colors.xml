@@ -3,4 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="textColor">#121111</color>
+    <color name="textColorLight">#666666</color>
+    <color name="horizontal_line_fill_color">#c6c6c6</color>
+    <color name="progressBarColor">#ffffff</color>
 </resources>

@@ -46,9 +46,11 @@ public class WorkersAdapter extends RecyclerView.Adapter<WorkersAdapter.ViewHold
         if (holder != null) {
             holder.profileName.setText(menuData.get(position).getName());
             holder.ratingBar.setRating(Float.parseFloat(menuData.get(position).getAverage()));
+
             downloadImage(holder.profileView, menuData.get(position).getImagePath());
         }
     }
+
 
     private void downloadImage(ImageView profileView, String imagePath) {
         Picasso.get()

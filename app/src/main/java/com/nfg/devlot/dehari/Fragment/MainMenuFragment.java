@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,13 +70,14 @@ public class MainMenuFragment extends Fragment {
          * */
 
         getAllServices();
-        getAllWorkers();
+
 
         return view;
     }
 
     private void getAllWorkers()
     {
+        workersArrayList.clear();
         StringRequest request = new StringRequest(Request.Method.POST, URL.GET_PROVIDERS, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -111,7 +113,7 @@ public class MainMenuFragment extends Fragment {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> parameters = new HashMap<String, String>();
-                parameters.put("c_id","");
+                parameters.put("c_id","1");
 
                 return  parameters;
             }
@@ -125,8 +127,10 @@ public class MainMenuFragment extends Fragment {
 
         try
         {
+            Log.d("Resp->Workers", response);
+
             JSONObject jsonObject = new JSONObject(response);
-            JSONArray  jsonArray = jsonObject.getJSONArray("providers");
+            JSONArray  jsonArray = jsonObject.getJSONArray("providerByRating");
             for (int i = 0;i<jsonArray.length();i++)
             {
                 WorkersModel _refModel = new WorkersModel();
@@ -135,9 +139,18 @@ public class MainMenuFragment extends Fragment {
                 _refModel.setId(providers.getString("sp_id"));
                 _refModel.setName(providers.getString("name"));
                 _refModel.setPhoneNumber(providers.getString("phone_number"));
-                _refModel.setAverage(providers.getString("avgrating"));
-                _refModel.setImagePath(providers.getString("image_path"));
+                if(!providers.isNull("avgrating"))
+                {
+                    Log.d("Test->if","Done");
+                    _refModel.setAverage(providers.getString("avgrating"));
+                }
+                else
+                {
+                    Log.d("Test->else","Done");
+                    _refModel.setAverage("0");
+                }
 
+                _refModel.setImagePath(providers.getString("image_path"));
 
                 workersArrayList.add(_refModel);
 
@@ -177,8 +190,9 @@ public class MainMenuFragment extends Fragment {
 
     }
 
-    private void getAllServices() {
-
+    private void getAllServices()
+    {
+        categoryArrayList.clear();
         StringRequest request = new StringRequest(Request.Method.POST, URL.GET_ALL_CATEGORIES, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -204,6 +218,8 @@ public class MainMenuFragment extends Fragment {
                  * */
 
                 adapterObject.updateRecord(categoryArrayList);
+
+                getAllWorkers();
 
             }
         }, new Response.ErrorListener() {
@@ -245,12 +261,13 @@ public class MainMenuFragment extends Fragment {
 
     private void initializeObjects()
     {
-        categoryArrayList   = new ArrayList<>();
-        workersArrayList    = new ArrayList<>();
-        requestQueue        = Volley.newRequestQueue(getActivity());
-        layoutManager       = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
-        adapterObject       = new CategoryAdapter(getActivity(),categoryArrayList);
-        adapterWokersObject = new WorkersAdapter(getActivity(),workersArrayList);
+        categoryArrayList           = new ArrayList<>();
+        workersArrayList            = new ArrayList<>();
+        requestQueue                = Volley.newRequestQueue(getActivity());
+        layoutManager               = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
+        layoutManagerWorkers        = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
+        adapterObject               = new CategoryAdapter(getActivity(),categoryArrayList);
+        adapterWokersObject         = new WorkersAdapter(getActivity(),workersArrayList);
         recyclerView.setLayoutManager(layoutManager);
         recyclerViewWorkers.setLayoutManager(layoutManagerWorkers);
         recyclerView.setAdapter(adapterObject);
