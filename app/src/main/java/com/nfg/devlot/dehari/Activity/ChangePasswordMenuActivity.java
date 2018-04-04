@@ -116,12 +116,12 @@ public class ChangePasswordMenuActivity extends AppCompatActivity implements Vie
             public void onResponse(String response) {
 
                 progressBar.setVisibility(View.INVISIBLE);
-                if(response.contains("Updated"))
+                if(response.contains("updated"))
                 {
                     Toast.makeText(getApplicationContext(),"Password Updated Successfully",Toast.LENGTH_SHORT).show();
                     finish();
                 }
-                else if(response.contains("Failed"))
+                else if(response.contains("failed"))
                 {
                     Toast.makeText(getApplicationContext(),"There appears to be a problem, Please try again later",Toast.LENGTH_SHORT).show();
                 }
@@ -139,10 +139,10 @@ public class ChangePasswordMenuActivity extends AppCompatActivity implements Vie
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> parameters = new HashMap<String, String>();
                 parameters.put("uid", UserSession.uid);
-                parameters.put("password",newPassword_editText.getText().toString().trim());
+                parameters.put("old_password",currentPassword_editText.getText().toString().trim());
+                parameters.put("new_password",newPassword_editText.getText().toString().trim());
 
                 return parameters;
-
             }
         };
 
