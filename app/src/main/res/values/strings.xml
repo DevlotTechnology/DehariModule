@@ -56,4 +56,5 @@
     <string name="mobileNumber">Mobile Number</string>
     <string name="profile">Profile</string>
     <string name="enterNewPasswordDesc">Enter your new password, to update old password</string>
+    <string name="myReviews">My Reviews</string>
 </resources>

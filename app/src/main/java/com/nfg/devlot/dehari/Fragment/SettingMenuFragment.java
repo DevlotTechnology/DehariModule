@@ -2,15 +2,12 @@ package com.nfg.devlot.dehari.Fragment;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +39,7 @@ public class SettingMenuFragment extends Fragment implements View.OnClickListene
     RelativeLayout      change_btn_rel;
     LinearLayout        change_btn_lin;
     ImageView           change_tbn_img;
-    Toolbar             toolbar;
+    //Toolbar             toolbar;
     ArrayList<String>   allLanguages;
 
 
@@ -63,7 +60,7 @@ public class SettingMenuFragment extends Fragment implements View.OnClickListene
          *
          * */
 
-        SetToolBarHomeUp();
+        //SetToolBarHomeUp();
 
 
         name_textView.setText(UserSession.uname);
@@ -83,9 +80,8 @@ public class SettingMenuFragment extends Fragment implements View.OnClickListene
         return view;
     }
 
-    private void SetToolBarHomeUp()
+   /* private void SetToolBarHomeUp()
     {
-        toolbar.setVisibility(View.VISIBLE);
 
         assert ((AppCompatActivity)getActivity()) != null;
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
@@ -108,7 +104,7 @@ public class SettingMenuFragment extends Fragment implements View.OnClickListene
 
             }
         });
-    }
+    }*/
 
     private void initializeObject()
     {
@@ -134,7 +130,7 @@ public class SettingMenuFragment extends Fragment implements View.OnClickListene
 
         change_tbn_img          = (ImageView)      view.findViewById(R.id.changePassword_imageView_setting_xml);
 
-        toolbar                 = (Toolbar)        view.findViewById(R.id.toolbar);
+        //toolbar                 = (Toolbar)        view.findViewById(R.id.toolbar);
     }
 
     private void showTermsAndConditions()

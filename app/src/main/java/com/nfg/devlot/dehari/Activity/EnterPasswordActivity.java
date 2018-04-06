@@ -72,7 +72,6 @@ public class EnterPasswordActivity extends AppCompatActivity implements View.OnC
                  * COMMUNICATION WITH DATABASE GOES HERE
                  *
                  * */
-
                 StringRequest request = new StringRequest(Request.Method.POST, URL.CHECK_PASSWORD, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -84,6 +83,7 @@ public class EnterPasswordActivity extends AppCompatActivity implements View.OnC
                         }
 
                         Capture_response(response);
+
                         startActivity(new Intent(getApplicationContext(),NavigationDrawerActivity.class));
                         overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
 
@@ -108,6 +108,7 @@ public class EnterPasswordActivity extends AppCompatActivity implements View.OnC
                 };
 
                 requestQueue.add(request);
+
 
             }
         }

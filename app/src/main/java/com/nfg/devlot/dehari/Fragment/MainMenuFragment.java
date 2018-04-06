@@ -151,6 +151,7 @@ public class MainMenuFragment extends Fragment {
                 }
 
                 _refModel.setImagePath(providers.getString("image_path"));
+                _refModel.setLocation(providers.getString("location"));
 
                 workersArrayList.add(_refModel);
 
