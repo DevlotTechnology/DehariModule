@@ -7,4 +7,5 @@
     <color name="textColorLight">#666666</color>
     <color name="horizontal_line_fill_color">#c6c6c6</color>
     <color name="progressBarColor">#ffffff</color>
+    <color name="textColorWhite">#ffffff</color>
 </resources>

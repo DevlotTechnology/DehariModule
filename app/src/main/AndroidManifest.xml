@@ -53,7 +53,7 @@
         <activity android:name=".Activity.ServicesActivity" />
         <activity android:name=".Activity.WorkerProfileActivity" />
         <activity android:name=".Activity.ChangePasswordMenuActivity" />
-        <activity android:name=".Activity.NewUserSignUpActivity"></activity>
+        <activity android:name=".Activity.NewUserSignUpActivity" />
     </application>
 
 </manifest>
