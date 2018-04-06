@@ -24,12 +24,15 @@
 
                 <!-- Profile TextView -->
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/profile"
+                    android:textStyle="bold"
                     android:layout_marginBottom="20dp"
                     android:id="@+id/profile_textView_setting_xml"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#ffffff"
+                    android:background="@color/colorPrimaryDark"
+                    android:padding="3dp"
                     />
 
                 <!--  Name  Layout -->
@@ -185,7 +188,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/changePassword"
-                            android:textColor="@color/textColor"
+                            android:textColor="@color/colorPrimaryDark"
                             android:clickable="true"
                             android:id="@+id/changePassword_textView_setting_xml"/>
 
@@ -211,12 +214,15 @@
 
                 <!--  General Layout -->
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/general"
+                    android:textStyle="bold"
                     android:layout_marginBottom="20dp"
                     android:id="@+id/general_textView_setting_xml"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#ffffff"
+                    android:background="@color/colorPrimaryDark"
+                    android:padding="3dp"
                     />
 
                 <!-- language Layout -->
@@ -246,7 +252,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/language"
-                            android:textColor="@color/textColor"
+                            android:textColor="@color/colorPrimaryDark"
                             android:id="@+id/laguage_textView_setting_xml"/>
 
                         <TextView
@@ -286,7 +292,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/rateApp"
-                            android:textColor="@color/textColor"
+                            android:textColor="@color/colorPrimaryDark"
                             android:id="@+id/rate_textView_setting_xml"/>
 
 
@@ -313,12 +319,15 @@
 
                 <!--  About Layout -->
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/about"
+                    android:textStyle="bold"
                     android:layout_marginBottom="20dp"
                     android:id="@+id/about_textView_setting_xml"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#ffffff"
+                    android:background="@color/colorPrimaryDark"
+                    android:padding="3dp"
                     />
 
 

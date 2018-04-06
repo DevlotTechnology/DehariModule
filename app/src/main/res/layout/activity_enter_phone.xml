@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.nfg.devlot.dehari.Activity.EnterPhoneActivity">
+    tools:context="com.nfg.devlot.dehari.Activity.EnterPhoneActivity"
+    android:background="@drawable/bg">
 
    <!-- <ImageView
         android:layout_width="match_parent"
@@ -54,6 +55,7 @@
                     android:layout_marginTop="40dp"
                     android:text="@string/enterPhoneNumber"
                     android:textSize="25dp"
+                    android:textColor="#ffffff"
                     android:id="@+id/description_textView_enterPhone_xml"
                     />
 
@@ -75,7 +77,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="phone"
+                        android:textColor="#ffffff"
                         android:hint="@string/phoneNumberHint"
+                        android:textColorHint="#ffffff"
                         android:id="@+id/phoneNumber_editText_enterPhone_xml" />
 
                 </android.support.design.widget.TextInputLayout>
