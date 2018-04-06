@@ -79,6 +79,7 @@
                         android:inputType="phone"
                         android:textColor="#ffffff"
                         android:hint="@string/phoneNumberHint"
+                        android:textColorHint="#ffffff"
                         android:id="@+id/phoneNumber_editText_enterPhone_xml" />
 
                 </android.support.design.widget.TextInputLayout>
