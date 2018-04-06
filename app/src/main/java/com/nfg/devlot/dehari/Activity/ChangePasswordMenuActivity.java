@@ -45,28 +45,16 @@ public class ChangePasswordMenuActivity extends AppCompatActivity implements Vie
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_password_menu);
+
+        createWidget();
+        initializeObject();
+
+        progressBar.setVisibility(View.INVISIBLE);
+
+        update_btn.setOnClickListener(this);
     }
 
-    private void initializeObject()
-    {
-        _refInputValidation     = new InputValidation(this);
-        requestQueue            = Volley.newRequestQueue(this);
-    }
 
-    private void createWidget()
-    {
-        currentPassword_textView    = (TextInputLayout)  findViewById(R.id.currentPassword_textView_newPassword_xml);
-        newPassword_textView        = (TextInputLayout)  findViewById(R.id.newPassword_textView_newPassword_xml);
-        confirmPassword_textView    = (TextInputLayout)  findViewById(R.id.confirmPassword_textView_newPassword_xml);
-
-        currentPassword_editText    = (TextInputEditText)findViewById(R.id.currentPassword_editText_newPassword_xml);
-        newPassword_editText        = (TextInputEditText)findViewById(R.id.newPassword_editText_newPassword_xml);
-        confirmPassword_editText    = (TextInputEditText)findViewById(R.id.confirmPassword_editText_newPassword_xml);
-
-        update_btn                  = (Button)           findViewById(R.id.update_button_changePassword_xml);
-        backButton                  = (ImageView)        findViewById(R.id.backButton_changePassword_xml);
-        progressBar                 = (ProgressBar)      findViewById(R.id.progressBar_changedPassword_xml);
-    }
 
     @Override
     public void onClick(View view)
@@ -101,6 +89,7 @@ public class ChangePasswordMenuActivity extends AppCompatActivity implements Vie
              *  @func UpdatePassword();
              *
              * */
+            
             UpdatePassword();
 
         }
@@ -148,5 +137,26 @@ public class ChangePasswordMenuActivity extends AppCompatActivity implements Vie
         };
 
         requestQueue.add(request);
+    }
+
+    private void initializeObject()
+    {
+        _refInputValidation     = new InputValidation(this);
+        requestQueue            = Volley.newRequestQueue(this);
+    }
+
+    private void createWidget()
+    {
+        currentPassword_textView    = (TextInputLayout)  findViewById(R.id.currentPassword_textView_newPassword_xml);
+        newPassword_textView        = (TextInputLayout)  findViewById(R.id.newPassword_textView_newPassword_xml);
+        confirmPassword_textView    = (TextInputLayout)  findViewById(R.id.confirmPassword_textView_newPassword_xml);
+
+        currentPassword_editText    = (TextInputEditText)findViewById(R.id.currentPassword_editText_newPassword_xml);
+        newPassword_editText        = (TextInputEditText)findViewById(R.id.newPassword_editText_newPassword_xml);
+        confirmPassword_editText    = (TextInputEditText)findViewById(R.id.confirmPassword_editText_newPassword_xml);
+
+        update_btn                  = (Button)           findViewById(R.id.update_button_changePassword_xml);
+        backButton                  = (ImageView)        findViewById(R.id.backButton_changePassword_xml);
+        progressBar                 = (ProgressBar)      findViewById(R.id.progressBar_changedPasswordMenu_xml);
     }
 }

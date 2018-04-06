@@ -12,6 +12,16 @@ public class WorkersModel {
     String name;
     String email;
     String phoneNumber;
+    String location;
+
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
 
     public String getEmail() {
         return email;

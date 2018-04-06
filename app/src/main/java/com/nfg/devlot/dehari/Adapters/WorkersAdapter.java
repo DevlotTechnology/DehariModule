@@ -97,7 +97,13 @@ public class WorkersAdapter extends RecyclerView.Adapter<WorkersAdapter.ViewHold
         {
             if(v.getId() == R.id.parent_relativeLayout_topRatedWorkers)
             {
-                context.startActivity(new Intent(context, WorkerProfileActivity.class));
+                Intent intent = new Intent(context,WorkerProfileActivity.class);
+                intent.putExtra("sid",menuData.get(getAdapterPosition()).getId());
+                intent.putExtra("name",menuData.get(getAdapterPosition()).getName());
+                intent.putExtra("phone",menuData.get(getAdapterPosition()).getPhoneNumber());
+                intent.putExtra("location",menuData.get(getAdapterPosition()).getLocation());
+                intent.putExtra("averagerating",menuData.get(getAdapterPosition()).getAverage());
+                context.startActivity(intent);
                 ((Activity) context).overridePendingTransition(R.anim.slide_up, R.anim.slide_down);
             }
         }
