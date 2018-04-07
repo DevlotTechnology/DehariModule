@@ -54,6 +54,8 @@
         <activity android:name=".Activity.WorkerProfileActivity" />
         <activity android:name=".Activity.ChangePasswordMenuActivity" />
         <activity android:name=".Activity.NewUserSignUpActivity" />
+        <activity android:name=".Activity.SirviceProvidersActivity" />
+        <activity android:name=".Activity.Billing_Activity"></activity>
     </application>
 
 </manifest>
