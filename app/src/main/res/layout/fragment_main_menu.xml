@@ -45,6 +45,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginStart="5dp"/>
 
+
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -53,7 +54,7 @@
                     android:minHeight="25dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp"
-                    android:background="@drawable/filled_btn"
+                    android:background="@drawable/filled_btn2"
                     android:layout_below="@+id/cardView_main_menu_xml"
                     android:layout_alignParentEnd="true"
                     android:layout_alignTop="@+id/topRatedWorkers_textView_main_menu_xml"

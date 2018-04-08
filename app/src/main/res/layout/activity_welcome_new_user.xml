@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.nfg.devlot.dehari.Activity.WelcomeNewUserActivity">
+    tools:context="com.nfg.devlot.dehari.Activity.WelcomeNewUserActivity"
+    android:background="@drawable/bg">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -29,27 +30,34 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:text="@string/newAccount"
+                android:textColor="#ffffff"
                 android:textSize="22dp"
                 android:id="@+id/description_textView_newUser_xml"
-                android:textColor="@color/colorPrimary"
                 />
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/description_textView_newUser_xml"
                 android:text="@string/newAccountDesc"
+                android:layout_margin="20dp"
+                android:layout_below="@id/description_textView_newUser_xml"
                 android:id="@+id/belowDescription_textView_newUser_xml"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="12dp"
+                android:textColor="#ffffff"
+                android:textSize="15dp"
+                android:gravity="center"
+                android:textStyle="bold"
                 android:layout_marginTop="5dp" />
 
         </RelativeLayout>
 
+
+
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/toplayout_newUser_xml">
+            android:layout_alignParentBottom="true">
 
             <Button
                 android:layout_width="match_parent"
@@ -57,10 +65,27 @@
                 android:id="@+id/continueButton_newUser_xml"
                 android:text="@string/createNewAccountButton"
                 android:background="@drawable/filled_btn"
-                android:layout_margin="10dp"
-                android:textColor="#ffffff" />
+                android:layout_margin="20dp"
+                android:textColor="#ffffff"
+                />
+            <TextView
+                android:id="@+id/or_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OR"
+                android:textColor="#ffffff"
+                android:layout_below="@id/continueButton_newUser_xml"
+                android:layout_centerHorizontal="true"/>
 
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/continueWithFaceBook_newUser_xml"
+                android:layout_below="@id/or_tv"
+                android:text="@string/continueWithFacebook"
+                android:textColor="#ffffff"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="12dp"/>
 
         </RelativeLayout>
 

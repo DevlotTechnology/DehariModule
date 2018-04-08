@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.nfg.devlot.dehari.Activity.NewUserSignUpActivity">
+    tools:context="com.nfg.devlot.dehari.Activity.NewUserSignUpActivity"
+    android:background="@drawable/bg">
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -16,10 +17,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/createAccount"
-            android:textSize="18dp"
+            android:textSize="22dp"
             android:layout_centerHorizontal="true"
             android:id="@+id/description_textView_enterPhone_xml"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="#ffffff" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -38,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/profilePicture_userSignUp_xml"
             android:text="@string/chooseAPicture"
-            android:textColor="@color/colorPrimary"
+            android:textColor="#ffffff"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:id="@+id/choosePicture_textView_userSignUp_xml"/>
@@ -47,6 +48,9 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/name"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
             android:id="@+id/name_textView_userSignUp_xml"
             android:layout_below="@+id/choosePicture_textView_userSignUp_xml">
 
@@ -56,10 +60,11 @@
                 android:layout_marginTop="15dp"
                 android:hint="@string/name"
                 android:textSize="15dp"
-                android:textColorHint="@color/colorPrimaryDark"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff"
                 android:gravity="center"
                 android:id="@+id/name_editText_userSignUp_xml"
-                android:inputType="textPersonName"/>
+                android:inputType="textPassword"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -67,6 +72,9 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/email"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
             android:layout_below="@+id/name_textView_userSignUp_xml"
             android:id="@+id/email_textView_userSignUp_xml">
 
@@ -76,7 +84,8 @@
                 android:layout_marginTop="10dp"
                 android:textSize="15dp"
                 android:hint="@string/email"
-                android:textColorHint="@color/colorPrimaryDark"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff"
                 android:gravity="center"
                 android:id="@+id/email_editText_userSignUp_xml"
                 android:inputType="textEmailAddress"/>
@@ -89,6 +98,9 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
             android:layout_below="@+id/email_textView_userSignUp_xml"
             android:id="@+id/password_textView_userSignUp_xml">
 
@@ -98,7 +110,8 @@
                 android:layout_marginTop="10dp"
                 android:hint="@string/password"
                 android:textSize="15dp"
-                android:textColorHint="@color/colorPrimaryDark"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff"
                 android:gravity="center"
                 android:id="@+id/password_editText_userSignUp_xml"
                 android:inputType="textPassword"/>
@@ -110,6 +123,9 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/confirmPassword"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
             android:id="@+id/confirmPassword_textView_userSignUp_xml"
             android:layout_below="@+id/password_textView_userSignUp_xml">
 
@@ -119,7 +135,8 @@
                 android:layout_marginTop="10dp"
                 android:textSize="15dp"
                 android:hint="@string/confirmPassword"
-                android:textColorHint="@color/colorPrimaryDark"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff"
                 android:gravity="center"
                 android:id="@+id/confirmPassword_editText_userSignUp_xml"
                 android:inputType="textPassword"/>
@@ -139,15 +156,15 @@
             android:text="@string/continueText"
             android:id="@+id/continue_button_userSignUp_xml"
             android:background="@drawable/filled_btn"
-            android:layout_margin="10dp"
+            android:layout_margin="20dp"
             android:textColor="#ffffff" />
 
     </RelativeLayout>
 
-    <!--<ProgressBar
+    <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:id="@+id/progressBar_forgotPassword_xml"/>-->
+        android:id="@+id/progressBar_forgotPassword_xml"/>
 
 </RelativeLayout>

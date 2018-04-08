@@ -157,6 +157,6 @@ public class ChangePasswordMenuActivity extends AppCompatActivity implements Vie
 
         update_btn                  = (Button)           findViewById(R.id.update_button_changePassword_xml);
         backButton                  = (ImageView)        findViewById(R.id.backButton_changePassword_xml);
-        progressBar                 = (ProgressBar)      findViewById(R.id.progressBar_changedPasswordMenu_xml);
+        progressBar                 = (ProgressBar)      findViewById(R.id.progressBar_changedPassword_xml);
     }
 }
