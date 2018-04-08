@@ -165,6 +165,7 @@ public class EnterPasswordActivity extends AppCompatActivity implements View.OnC
             _refUserModel.setSs_id(UserSession.uid);
             _refUserModel.setEmail(UserSession.uemail);
             _refUserModel.setImagePath(UserSession.imagePath);
+            _refUserModel.setPhone_number(UserSession.uPhone);
 
 
             /**

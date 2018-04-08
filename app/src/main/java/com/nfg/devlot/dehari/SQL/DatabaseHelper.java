@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
 import com.nfg.devlot.dehari.Models.JobModel;
 import com.nfg.devlot.dehari.Models.UserModel;
 import com.nfg.devlot.dehari.Session.UserSession;
@@ -141,17 +143,23 @@ public class DatabaseHelper extends SQLiteOpenHelper
 
             if(cursor.getCount() > 0)
             {
-                int indexColumn = cursor.getColumnIndex(col_ss_id);
-                int nameColumn = cursor.getColumnIndex(col_ss_name);
-                int emailColumn = cursor.getColumnIndex(col_ss_email);
-                int phoneColumn = cursor.getColumnIndex(col_ss_phone_number);
+                int indexColumn     = cursor.getColumnIndex(col_ss_id);
+                int nameColumn      = cursor.getColumnIndex(col_ss_name);
+                int emailColumn     = cursor.getColumnIndex(col_ss_email);
+                int phoneColumn     = cursor.getColumnIndex(col_ss_phone_number);
                 int imagePathColumn = cursor.getColumnIndex(col_ss_image_path);
 
-                UserSession.uid = cursor.getString(indexColumn);
-                UserSession.uname = cursor.getString(nameColumn);
-                UserSession.uemail = cursor.getString(emailColumn);
-                UserSession.uPhone = cursor.getString(phoneColumn);
+                UserSession.uid       = cursor.getString(indexColumn);
+                UserSession.uname     = cursor.getString(nameColumn);
+                UserSession.uemail    = cursor.getString(emailColumn);
+                UserSession.uPhone    = cursor.getString(phoneColumn);
                 UserSession.imagePath = cursor.getString(imagePathColumn);
+
+                Log.d("test->LocalId",cursor.getString(indexColumn));
+                Log.d("test->Localname",cursor.getString(nameColumn));
+                Log.d("test->Localemail",cursor.getString(emailColumn));
+                Log.d("test->Localphone",cursor.getString(phoneColumn));
+                Log.d("test->Localimagepath",cursor.getString(imagePathColumn));
 
                 cursor.close();
                 return true;

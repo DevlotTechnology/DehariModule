@@ -19,9 +19,9 @@ import java.util.ArrayList;
 
 public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolderReviewAdapter> {
 
-    ArrayList<ReviewModel>  menuData;
-    LayoutInflater          inflater;
-    Context                 context;
+    private ArrayList<ReviewModel>  menuData;
+    private LayoutInflater          inflater;
+    private Context                 context;
 
 
     public ReviewAdapter(Context context, ArrayList<ReviewModel> data)

@@ -18,14 +18,14 @@
 
             <include layout="@layout/menu_toolbar"/>
 
-            <ImageView
+            <!--<ImageView
                 android:id="@+id/category_cover_services_xml"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:src="@drawable/electeician"
                 android:adjustViewBounds="true"
                 android:scaleType="fitXY"
-                android:layout_below="@id/toolbar"/>
+                android:layout_below="@id/toolbar"/>-->
 
             <TextView
                 android:id="@+id/services_tv_services_xml"
@@ -37,7 +37,7 @@
                 android:text="Services"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimaryDark"
-                android:layout_below="@id/category_cover_services_xml"/>
+                android:layout_below="@+id/toolbar"/>
 
             <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"

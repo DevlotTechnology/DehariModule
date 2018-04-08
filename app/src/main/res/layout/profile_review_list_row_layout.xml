@@ -29,6 +29,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_marginRight="10dp"
+            android:id="@+id/reviewDate_textView_reviewProfile_xml"
             android:text="15 march 2017"/>
 
         <!-- Rating Bar -->
