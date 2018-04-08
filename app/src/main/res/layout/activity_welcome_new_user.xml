@@ -36,21 +36,22 @@
                 />
 
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/newAccountDesc"
+                android:layout_margin="20dp"
+                android:layout_below="@id/description_textView_newUser_xml"
+                android:id="@+id/belowDescription_textView_newUser_xml"
+                android:textColor="#ffffff"
+                android:textSize="15dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp" />
 
         </RelativeLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/newAccountDesc"
-            android:layout_margin="20dp"
-            android:id="@+id/belowDescription_textView_newUser_xml"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="15dp"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:layout_marginTop="5dp" />
+
 
 
         <RelativeLayout

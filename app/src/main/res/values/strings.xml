@@ -7,7 +7,7 @@
     <string name="verticalDash">|</string>
     <string name="enterPhoneNumber">Enter Phone Number</string>
     <string name="continueText">Continue</string>
-    <string name="phoneNumberHint">030012345678</string>
+    <string name="phoneNumberHint">e.g 030012345678</string>
     <string name="enterPassword">Enter Password</string>
     <string name="newAccount">Welcome To Dehari</string>
     <string name="newAccountDesc">You are new to Dehari, please get registered to get our services and offers</string>
@@ -57,4 +57,5 @@
     <string name="profile">Profile</string>
     <string name="enterNewPasswordDesc">Enter your new password, to update old password</string>
     <string name="myReviews">My Reviews</string>
+    <string name="hireNow">Hire Now</string>
 </resources>

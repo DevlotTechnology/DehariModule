@@ -17,9 +17,15 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:background="@color/colorPrimary"
+                android:background="@drawable/cover_image"
                 android:id="@+id/dropDown_view_workerProfile_xml"/>
 
+            <View
+                android:layout_below="@id/dropDown_view_workerProfile_xml"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@color/profileBg"
+               />
 
             <!-- PROFILE CIRCLE VIEW ICON -->
             <de.hdodenhof.circleimageview.CircleImageView
@@ -114,6 +120,30 @@
                 android:id="@+id/description_textView_workerProfile_xml"
                 android:layout_below="@+id/userLocation_textView_workerProfile_xml"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="50"
+                android:textSize="19dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_toRightOf="@id/description_textView_workerProfile_xml"
+                android:id="@+id/numberOfReviews_textView_workerProfile_xml"
+                android:layout_below="@+id/userLocation_textView_workerProfile_xml"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_margin="20dp"
+                android:text="@string/hireNow"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:background="@drawable/filled_btn2"
+                android:id="@+id/hireNow_btn_workerProfile_xml"
+                android:layout_below="@+id/userLocation_textView_workerProfile_xml"
+                />
             <!--  Rating Bar -->
 
             <RatingBar
