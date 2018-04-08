@@ -17,7 +17,9 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.nfg.devlot.dehari.Helpers.InputValidation;
 import com.nfg.devlot.dehari.Models.URL;
+import com.nfg.devlot.dehari.Models.UserModel;
 import com.nfg.devlot.dehari.R;
+import com.nfg.devlot.dehari.SQL.DatabaseHelper;
 import com.nfg.devlot.dehari.Session.UserSession;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,6 +34,7 @@ public class EnterPasswordActivity extends AppCompatActivity implements View.OnC
     TextInputEditText   password_editText;
     InputValidation     _refInputValidation;
     RequestQueue        requestQueue;
+    DatabaseHelper      _refLocalDbHelper;
 
 
     @Override
@@ -57,7 +60,7 @@ public class EnterPasswordActivity extends AppCompatActivity implements View.OnC
     {
         _refInputValidation     = new InputValidation(this);
         requestQueue            = Volley.newRequestQueue(getApplicationContext());
-
+        _refLocalDbHelper       = new DatabaseHelper(this);
     }
 
     @Override
@@ -67,14 +70,34 @@ public class EnterPasswordActivity extends AppCompatActivity implements View.OnC
         {
             if(checkInput())
             {
+
+                /**
+                 *
+                 *  Diabling Continue button here
+                 *  @code continue_btn.setEnabled(false);
+                 *
+                 * */
+
+                continue_btn.setEnabled(false);
+
                 /**
                  *
                  * COMMUNICATION WITH DATABASE GOES HERE
                  *
                  * */
+
                 StringRequest request = new StringRequest(Request.Method.POST, URL.CHECK_PASSWORD, new Response.Listener<String>() {
                     @Override
-                    public void onResponse(String response) {
+                    public void onResponse(String response)
+                    {
+                        /**
+                         *
+                         *  Enabling Continue button here
+                         *  @code continue_btn.setEnabled(true);
+                         * */
+
+                        continue_btn.setEnabled(true);
+
 
                         if(response.contains("noData"))
                         {
@@ -88,9 +111,18 @@ public class EnterPasswordActivity extends AppCompatActivity implements View.OnC
                         overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
 
                     }
-                }, new Response.ErrorListener() {
+                }, new Response.ErrorListener()
+                {
                     @Override
-                    public void onErrorResponse(VolleyError error) {
+                    public void onErrorResponse(VolleyError error)
+                    {
+                        /**
+                         *
+                         *  Enabling Continue button here
+                         *  @code continue_btn.setEnabled(true);
+                         * */
+
+                        continue_btn.setEnabled(true);
 
                         Toast.makeText(getApplicationContext(),"There Appears to be problem, Please try again later",Toast.LENGTH_SHORT).show();
 
@@ -126,6 +158,23 @@ public class EnterPasswordActivity extends AppCompatActivity implements View.OnC
             UserSession.uemail      =   jsonArray.getJSONObject(0).getString("email");
 
             UserSession.imagePath   =   jsonArray.getJSONObject(0).getString("image_path");
+
+
+            UserModel _refUserModel = new UserModel();
+            _refUserModel.setName(UserSession.uname);
+            _refUserModel.setSs_id(UserSession.uid);
+            _refUserModel.setEmail(UserSession.uemail);
+            _refUserModel.setImagePath(UserSession.imagePath);
+
+
+            /**
+             *
+             *  Inserting data in local datbase here
+             *  @code  DatabaseHelper.insertUser( UserModel obj);
+             *
+             * */
+
+            _refLocalDbHelper.insertUser(_refUserModel);
 
         }
         catch (JSONException e)

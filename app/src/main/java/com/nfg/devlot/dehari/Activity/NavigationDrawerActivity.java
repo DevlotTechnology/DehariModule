@@ -78,6 +78,10 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
             fragmentTransaction.replace(R.id.fragmentController,_refSettingMenu);
             fragmentTransaction.commit();
         }
+        else if(id == R.id.nav_jobs)
+        {
+
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

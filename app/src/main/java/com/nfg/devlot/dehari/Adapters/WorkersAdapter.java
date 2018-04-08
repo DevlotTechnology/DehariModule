@@ -103,6 +103,7 @@ public class WorkersAdapter extends RecyclerView.Adapter<WorkersAdapter.ViewHold
                 intent.putExtra("phone",menuData.get(getAdapterPosition()).getPhoneNumber());
                 intent.putExtra("location",menuData.get(getAdapterPosition()).getLocation());
                 intent.putExtra("averagerating",menuData.get(getAdapterPosition()).getAverage());
+                intent.putExtra("imagepath",menuData.get(getAdapterPosition()).getImagePath());
                 context.startActivity(intent);
                 ((Activity) context).overridePendingTransition(R.anim.slide_up, R.anim.slide_down);
             }

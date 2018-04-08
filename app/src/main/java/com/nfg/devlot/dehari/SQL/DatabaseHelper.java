@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.nfg.devlot.dehari.Models.JobModel;
 import com.nfg.devlot.dehari.Models.UserModel;
+import com.nfg.devlot.dehari.Session.UserSession;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,25 +50,25 @@ public class DatabaseHelper extends SQLiteOpenHelper
 
     // Queries: Table creation.
     private static final String create_ss_table = "CREATE TABLE " + table_service_seeker + "("
-            + col_ss_id             + "INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + col_ss_ss_id          + " INTEGER,"
+            + col_ss_id             + " TEXT,"
+            + col_ss_ss_id          + " TEXT,"
             + col_ss_name           + " TEXT,"
             + col_ss_email          + " TEXT,"
             + col_ss_phone_number   + " TEXT,"
-            + col_ss_image_path     + " TEXT);";
+            + col_ss_image_path     + " TEXT)";
 
 
     private static final String create_job_table = "CREATE TABLE " + table_jobs + "("
-            + col_job_id                    + "INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + col_job_job_id                + " INTEGER,"
-            + col_job_s_id                  + " INTEGER,"
-            + col_job_ss_id                 + " INTEGER,"
-            + col_job_sp_id                 + " INTEGER,"
+            + col_job_id                    + " TEXT,"
+            + col_job_job_id                + " TEXT,"
+            + col_job_s_id                  + " TEXT,"
+            + col_job_ss_id                 + " TEXT,"
+            + col_job_sp_id                 + " TEXT,"
             + col_job_start_time            + " TEXT,"
             + col_job_ending_time           + " TEXT,"
             + col_job_location              + " TEXT,"
             + col_job_status                + " TEXT,"
-            + col_job_additional_charges    + " TEXT);";
+            + col_job_additional_charges    + " TEXT)";
 
 
 
@@ -135,14 +137,30 @@ public class DatabaseHelper extends SQLiteOpenHelper
 
         if (cursor != null)
         {
-            cursor.close();
-            return true;
+            cursor.moveToFirst();
+
+            if(cursor.getCount() > 0)
+            {
+                int indexColumn = cursor.getColumnIndex(col_ss_id);
+                int nameColumn = cursor.getColumnIndex(col_ss_name);
+                int emailColumn = cursor.getColumnIndex(col_ss_email);
+                int phoneColumn = cursor.getColumnIndex(col_ss_phone_number);
+                int imagePathColumn = cursor.getColumnIndex(col_ss_image_path);
+
+                UserSession.uid = cursor.getString(indexColumn);
+                UserSession.uname = cursor.getString(nameColumn);
+                UserSession.uemail = cursor.getString(emailColumn);
+                UserSession.uPhone = cursor.getString(phoneColumn);
+                UserSession.imagePath = cursor.getString(imagePathColumn);
+
+                cursor.close();
+                return true;
+            }
         }
-        else
-        {
+
             cursor.close();
             return false;
-        }
+
     }
 
     public void deleteUser()

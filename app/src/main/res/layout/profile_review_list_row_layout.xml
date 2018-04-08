@@ -20,6 +20,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/reviewDate_textView_reviewProfile_xml"
         android:layout_alignTop="@+id/reviewCommenterName_textView_workerProfile_xml"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"

@@ -60,15 +60,7 @@
                 android:layout_margin="10dp"
                 android:textColor="#ffffff" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/continueWithFaceBook_newUser_xml"
-                android:layout_below="@+id/continueButton_newUser_xml"
-                android:text="@string/continueWithFacebook"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="12dp"
-                android:textColor="@color/colorPrimaryDark"/>
+
 
         </RelativeLayout>
 
