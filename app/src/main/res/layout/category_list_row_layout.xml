@@ -25,7 +25,6 @@
             android:layout_marginTop="10dp"
             android:textStyle="bold"
             android:gravity="center"
-            android:background="@color/colorPrimary"
             android:id="@+id/category_textView_list_row_layout"
             android:layout_centerHorizontal="true"
             />
