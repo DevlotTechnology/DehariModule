@@ -22,7 +22,7 @@
                 android:id="@+id/category_cover_services_xml"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:src="@drawable/electeician"
+                android:src="@drawable/electrician"
                 android:adjustViewBounds="true"
                 android:scaleType="fitXY"
                 android:layout_below="@id/toolbar"/>
