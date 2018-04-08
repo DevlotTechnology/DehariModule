@@ -18,12 +18,14 @@ import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.nfg.devlot.dehari.R;
+import com.nfg.devlot.dehari.SQL.DatabaseHelper;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button    continueWithMobile_btn;
-    LoginButton loginButton;
-    CallbackManager callbackManager;
+    Button              continueWithMobile_btn;
+    LoginButton         loginButton;
+    CallbackManager     callbackManager;
+    DatabaseHelper      _refLocalDbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         continueWithMobile_btn.setOnClickListener(this);
         loginButton.setOnClickListener(this);
+
+
+        /**
+         *
+         *  Checking if the user is already signed in here
+         *  @func isSessionExists();
+         * */
+
+        if(isSessionExists())
+        {
+            startActivity(new Intent(getApplicationContext(),NavigationDrawerActivity.class));
+            overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
+            finish();
+        }
+
+
+    }
+
+    private boolean isSessionExists()
+    {
+        if(_refLocalDbHelper.checkUser())
+        {
+            return true;
+        }
+
+        return false;
     }
 
 
@@ -49,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initializeObject()
     {
-
+        _refLocalDbHelper = new DatabaseHelper(this);
     }
 
     @Override

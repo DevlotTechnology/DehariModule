@@ -25,6 +25,8 @@ import com.nfg.devlot.dehari.Session.UserSession;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -42,7 +44,7 @@ public class NewUserSignUpActivity extends AppCompatActivity implements View.OnC
                         confirmPassword_textView;
 
     Button              continueButton;
-    ProgressBar         progressBar;
+    //ProgressBar         progressBar;
     RequestQueue        requestQueue;
     InputValidation     _refInputValidation;
     CircleImageView     profileImage;
@@ -66,41 +68,58 @@ public class NewUserSignUpActivity extends AppCompatActivity implements View.OnC
     {
         if(v.getId() == R.id.continue_button_userSignUp_xml)
         {
-            if(!_refInputValidation.isInputEditTextFilled(name_editText,name_textView,"Enter Name"))
+            if(checkInput())
             {
-                return;
-            }
-            if(!_refInputValidation.isInputEditTextFilled(password_editText,password_textView,"Enter Password"))
-            {
-                return;
-            }
-            if(!_refInputValidation.isInputEditTextFilled(email_editText,email_textView,"Enter Email"))
-            {
-                return;
-            }
-            if(!_refInputValidation.isInputEditTextFilled(confirmPassword_editText,confirmPassword_textView,"Enter confirm Password"))
-            {
-                return;
-            }
-            if(!_refInputValidation.isInputEditTextMatches(password_editText,confirmPassword_editText,confirmPassword_textView,"Entered Passwords Do not match"))
-            {
-                return;
-            }
-            if(!_refInputValidation.isValidPassword(password_editText,password_textView,"Password not secured",getApplicationContext()))
-            {
-                return;
-            }
+                /**
+                 *
+                 *  Disabling continue_btn here
+                 *  @code continueButton.setEnabled(false);
+                 *
+                 * */
 
-            /**
-             *
-             *  Communication With database goes here
-             *  @func InsertNewUser();
-             *
-             * */
+                continueButton.setEnabled(false);
 
-            InsertNewUser();
+                /**
+                 *
+                 *  Communication With database goes here
+                 *  @func InsertNewUser();
+                 *
+                 * */
 
+                InsertNewUser();
+
+            }
         }
+    }
+
+    private boolean checkInput()
+    {
+        if(!_refInputValidation.isInputEditTextFilled(name_editText,name_textView,"Enter Name"))
+        {
+            return false;
+        }
+        if(!_refInputValidation.isInputEditTextFilled(password_editText,password_textView,"Enter Password"))
+        {
+            return false;
+        }
+        if(!_refInputValidation.isInputEditTextFilled(email_editText,email_textView,"Enter Email"))
+        {
+            return false;
+        }
+        if(!_refInputValidation.isInputEditTextFilled(confirmPassword_editText,confirmPassword_textView,"Enter confirm Password"))
+        {
+            return false;
+        }
+        if(!_refInputValidation.isInputEditTextMatches(password_editText,confirmPassword_editText,confirmPassword_textView,"Entered Passwords Do not match"))
+        {
+            return false;
+        }
+        if(!_refInputValidation.isValidPassword(password_editText,password_textView,"Password not secured",getApplicationContext()))
+        {
+            return false;
+        }
+
+        return true;
     }
 
     private void InsertNewUser()
@@ -110,6 +129,15 @@ public class NewUserSignUpActivity extends AppCompatActivity implements View.OnC
             @Override
             public void onResponse(String response)
             {
+                /**
+                 *
+                 *  Enabling continue_btn here
+                 *  @code continueButton.setEnabled(false);
+                 *
+                 * */
+
+                continueButton.setEnabled(true);
+
                 if(response.contains("phone_exists"))
                 {
                     Toast.makeText(getApplicationContext(),"This phone number is already taken, Please choose different phone number", Toast.LENGTH_LONG).show();
@@ -139,8 +167,10 @@ public class NewUserSignUpActivity extends AppCompatActivity implements View.OnC
                  *
                  * */
 
+                finishAffinity();
                 startActivity(new Intent(getApplicationContext(),NavigationDrawerActivity.class));
                 overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
+                finish();
 
             }
         }, new Response.ErrorListener()
@@ -148,6 +178,15 @@ public class NewUserSignUpActivity extends AppCompatActivity implements View.OnC
             @Override
             public void onErrorResponse(VolleyError error)
             {
+                /**
+                 *
+                 *  Enabling continue_btn here
+                 *  @code continueButton.setEnabled(false);
+                 *
+                 * */
+
+                continueButton.setEnabled(true);
+
                 Toast.makeText(getApplicationContext(),"There Appear to be a problem, Please try again later",Toast.LENGTH_SHORT).show();
             }
         })
@@ -236,6 +275,6 @@ public class NewUserSignUpActivity extends AppCompatActivity implements View.OnC
 
         continueButton           = (Button)      findViewById(R.id.continue_button_userSignUp_xml);
 
-        progressBar              = (ProgressBar) findViewById(R.id.progressBar_forgotPassword_xml);
+        //progressBar              = (ProgressBar) findViewById(R.id.progressBar_forgotPassword_xml);
     }
 }

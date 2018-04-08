@@ -5,6 +5,7 @@ import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -61,10 +62,11 @@ public class EnterPhoneActivity extends AppCompatActivity implements View.OnClic
                     {
 
                         UserSession.uPhone      =   phone_editText.getText().toString().trim();
+                        Log.d("Test->Phone", UserSession.uPhone);
 
                         if(response.contains("false"))
                         {
-                            startActivity(new Intent(getApplicationContext(),NewUserSignUpActivity.class));
+                            startActivity(new Intent(getApplicationContext(),WelcomeNewUserActivity.class));
                             overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
                         }
                         else if(response.contains("true"))
