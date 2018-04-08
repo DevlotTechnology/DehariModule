@@ -90,7 +90,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/continueText"
                     android:id="@+id/continueButton_enterPhone_xml"
-                    android:background="@drawable/filled_btn"
+                    android:background="@drawable/filled_btn2"
                     android:layout_margin="10dp"
                     android:textColor="#ffffff"
                     android:layout_alignParentBottom="true"
