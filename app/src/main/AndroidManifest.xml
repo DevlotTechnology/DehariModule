@@ -57,7 +57,13 @@
         <activity android:name=".Activity.ChangePasswordMenuActivity" />
         <activity android:name=".Activity.NewUserSignUpActivity" />
         <activity android:name=".Activity.SirviceProvidersActivity" />
-        <activity android:name=".Activity.Billing_Activity"></activity>
+        <activity android:name=".Activity.Billing_Activity" />
+        <activity
+            android:name=".Activity.JobsActivity"
+            android:label="@string/title_activity_jobs"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".Activity.OngoingJobDetailsActivity" />
+        <activity android:name=".Activity.HistoryJobDetailsActivity"></activity>
     </application>
 
 </manifest>

@@ -25,6 +25,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/userName_textView_navHeader_xml"
         android:textSize="18dp"
+        android:text=" Muhammad Hasan "
         android:layout_gravity="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 

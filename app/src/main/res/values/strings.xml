@@ -59,4 +59,8 @@
     <string name="myReviews">My Reviews</string>
     <string name="hireNow">Hire Now</string>
     <string name="Jobs">Jobs</string>
+    <string name="title_activity_jobs">JobsActivity</string>
+    <string name="jobsOngoing">Ongoing</string>
+    <string name="jobsHistory">History</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>
