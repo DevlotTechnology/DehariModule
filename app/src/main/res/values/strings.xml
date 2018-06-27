@@ -63,4 +63,6 @@
     <string name="jobsOngoing">Ongoing</string>
     <string name="jobsHistory">History</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="notifications_admin_channel_name">ASD</string>
+    <string name="notification_admin_channel_description">dsa</string>
 </resources>

@@ -13,7 +13,24 @@ public class WorkersModel {
     String email;
     String phoneNumber;
     String location;
+    String profession;
+    String accessToken;
 
+    public String getProfession() {
+        return profession;
+    }
+
+    public void setProfession(String profession) {
+        this.profession = profession;
+    }
+
+    public String getAccessToken() {
+        return accessToken;
+    }
+
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+    }
 
     public String getLocation() {
         return location;

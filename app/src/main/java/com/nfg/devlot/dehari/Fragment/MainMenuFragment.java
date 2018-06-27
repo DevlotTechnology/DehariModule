@@ -71,9 +71,10 @@ public class MainMenuFragment extends Fragment {
 
         getAllServices();
 
-
         return view;
     }
+
+
 
     private void getAllWorkers()
     {

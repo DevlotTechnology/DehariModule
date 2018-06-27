@@ -1,15 +1,9 @@
 package com.nfg.devlot.dehari.Activity;
 
 import android.Manifest;
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Build;
-import android.provider.ContactsContract;
-import android.provider.Telephony;
-import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -30,11 +24,14 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.firebase.messaging.RemoteMessage;
 import com.nfg.devlot.dehari.Adapters.ReviewAdapter;
 import com.nfg.devlot.dehari.Helpers.NetworkChecker;
 import com.nfg.devlot.dehari.Models.ReviewModel;
 import com.nfg.devlot.dehari.Models.URL;
 import com.nfg.devlot.dehari.R;
+import com.nfg.devlot.dehari.Session.SelectService;
 import com.nfg.devlot.dehari.Session.UserSession;
 import com.squareup.picasso.Picasso;
 import org.json.JSONArray;
@@ -60,7 +57,9 @@ public class WorkerProfileActivity extends AppCompatActivity implements View.OnC
                              sentPhone,
                              sentLocation,
                              sentRating,
-                             sentImagePath;
+                             sentImagePath,
+                             sentToken;
+    int                      messageId=0;
     ArrayList<ReviewModel>   reviewModelArrayList = null;
     ReviewAdapter            adapterReviewObject;
     RecyclerView             recyclerViewReview;
@@ -102,7 +101,8 @@ public class WorkerProfileActivity extends AppCompatActivity implements View.OnC
                     getIntent().hasExtra("phone") &&
                     getIntent().hasExtra("location") &&
                     getIntent().hasExtra("averagerating") &&
-                    getIntent().hasExtra("imagepath"))
+                    getIntent().hasExtra("imagepath") &&
+                    getIntent().hasExtra("token"))
             {
                 sentId          = getIntent().getStringExtra("sid");
                 sentName        = getIntent().getStringExtra("name");
@@ -110,6 +110,7 @@ public class WorkerProfileActivity extends AppCompatActivity implements View.OnC
                 sentLocation    = getIntent().getStringExtra("location");
                 sentRating      = getIntent().getStringExtra("averagerating");
                 sentImagePath   = getIntent().getStringExtra("imagepath");
+                sentToken       = getIntent().getStringExtra("token");
 
                 /**
                  *
@@ -271,10 +272,14 @@ public class WorkerProfileActivity extends AppCompatActivity implements View.OnC
     {
         if(v.getId() == R.id.hireNow_btn_workerProfile_xml)
         {
-            message_btn.setVisibility(View.VISIBLE);
-            call_btn.setVisibility(View.VISIBLE);
-            hireNowButton.setVisibility(View.INVISIBLE);
+            /**
+             *
+             *  Sending push message to service provider
+             *  @func sendPushNotification();
+             *
+             * */
 
+            sendPushNotification();
         }
         if(v.getId() == R.id.callIcon_ImageView_workerProfile_xml)
         {
@@ -284,6 +289,44 @@ public class WorkerProfileActivity extends AppCompatActivity implements View.OnC
         {
             sendSMS();
         }
+    }
+
+    private void sendPushNotification()
+    {
+        StringRequest  request = new StringRequest(Request.Method.POST, URL.SEND_PUSH_MESSAGE, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),"There appears to be a problem, Please try again",Toast.LENGTH_SHORT).show();
+            }
+        }){
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String,String> parameters = new HashMap<String, String>();
+                parameters.put("token"  , sentToken);
+                parameters.put("s_id"   , SelectService.id);
+                parameters.put("ss_id"  , UserSession.uid);
+                parameters.put("sp_id"  , sentId);
+                parameters.put("message","I would like to Hire you for " + SelectService.name);
+
+                Log.d("[*] Check Token: ", sentToken);
+
+                return parameters;
+            }
+        };
+
+        requestQueue.add(request);
+    }
+
+    private int incrementAndGet()
+    {
+        return ++messageId;
     }
 
     private void makeCall()

@@ -10,12 +10,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.nfg.devlot.dehari.Fragment.MainMenuFragment;
-import com.nfg.devlot.dehari.Fragment.NotificationsMenuFragment;
 import com.nfg.devlot.dehari.Fragment.SettingMenuFragment;
+import com.nfg.devlot.dehari.Helpers.FirebaseInstance;
+import com.nfg.devlot.dehari.Models.URL;
 import com.nfg.devlot.dehari.R;
+import com.nfg.devlot.dehari.Session.UserSession;
+import java.util.HashMap;
+import java.util.Map;
 
 public class NavigationDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    RequestQueue requestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +39,84 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
 
         call_main_menu_fragment();
 
+
+        /**
+         *
+         * Initializing Objects here
+         * @func initializeObject();
+         *
+         * */
+
+        initializeObject();
+
+
+    }
+
+    private void initializeObject()
+    {
+        requestQueue = Volley.newRequestQueue(this);
+    }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+
+
+        /**
+         *
+         * Checking access token and uploading on server
+         *
+         * @func CheckTokenStatus();
+         *
+         * */
+
+        CheckTokenStatus();
+    }
+
+    private void CheckTokenStatus()
+    {
+        if(!FirebaseInstance.token.trim().equals(""))
+        {
+            UploadOnServer();
+        }
+    }
+
+    private void UploadOnServer()
+    {
+        StringRequest request =  new StringRequest(Request.Method.POST, URL.UPDATE_ACCESS_TOKEN, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                if(response.contains("updated"))
+                {
+                    return;
+                }
+                else if(response.contains("failed"))
+                {
+                    UploadOnServer();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String,String> parameters = new HashMap<String, String>();
+
+                parameters.put("id"     , UserSession.uid);
+                parameters.put("token"  , FirebaseInstance.token.trim());
+
+                return parameters;
+            }
+        };
+
+        requestQueue.add(request);
     }
 
     private void call_main_menu_fragment()
@@ -66,10 +157,10 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
 
         if (id == R.id.nav_notification)
         {
-            NotificationsMenuFragment _refFragment = new NotificationsMenuFragment();
+            /*NotificationsMenuFragment _refFragment = new NotificationsMenuFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragmentController,_refFragment);
-            fragmentTransaction.commit();
+            fragmentTransaction.commit();*/
         }
         else if (id == R.id.nav_settings)
         {

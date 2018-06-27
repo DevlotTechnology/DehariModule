@@ -1,14 +1,18 @@
 package com.nfg.devlot.dehari.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.nfg.devlot.dehari.Activity.SirviceProvidersActivity;
 import com.nfg.devlot.dehari.Models.ServicesModel;
 import com.nfg.devlot.dehari.R;
+import com.nfg.devlot.dehari.Session.SelectService;
+
 import java.util.ArrayList;
 
 /**
@@ -84,7 +88,11 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHo
         {
             if(v.getId() == R.id.relativeLayout_services_xml)
             {
-
+                Intent intent       = new Intent(context, SirviceProvidersActivity.class);
+                SelectService.name  = menuData.get(getAdapterPosition()).getServiceName();
+                SelectService.id    = menuData.get(getAdapterPosition()).getServiceId();
+                intent.putExtra("Service", menuData.get(getAdapterPosition()).getServiceId());
+                context.startActivity(intent);
             }
         }
     }

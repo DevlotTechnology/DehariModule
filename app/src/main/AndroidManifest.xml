@@ -64,6 +64,21 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".Activity.OngoingJobDetailsActivity" />
         <activity android:name=".Activity.HistoryJobDetailsActivity"></activity>
+
+        <service android:name=".Helpers.FirebaseInstance">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <service android:name=".Helpers.FirebaseMessaging">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+
+
     </application>
 
 </manifest>

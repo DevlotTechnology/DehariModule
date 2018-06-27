@@ -17,4 +17,8 @@ public class URL {
     public static final String GET_WORKER_REVIEWS       = MAIN_URL+"get_ratings.php";
     public static final String INSERT_USER              = MAIN_URL+"insert_user.php";
     public static final String CHECK_IF_PROVIDER_HIRED  = MAIN_URL+"check_provider_hire_status.php";
+    public static final String INSERT_ACCESS_TOKEN      = MAIN_URL+"insert_accesstoken.php";
+    public static final String UPDATE_ACCESS_TOKEN      = MAIN_URL+"update_access_token.php";
+    public static final String GET_PROVIDERS_BY_SERVICE = MAIN_URL+"get_provider_by_service.php";
+    public static final String SEND_PUSH_MESSAGE        = MAIN_URL+"send_push_notification.php";
 }

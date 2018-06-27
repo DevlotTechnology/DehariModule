@@ -6,7 +6,11 @@
 
    <RelativeLayout
        android:layout_width="wrap_content"
-       android:layout_height="wrap_content">
+       android:layout_height="wrap_content"
+       android:clickable="true"
+       android:focusable="true"
+       android:id="@+id/parentLayout_relativeLayout_serviceProvider_list_xml">
+
        <ImageView
            android:id="@+id/workerImage_serviceProviders_list_xml"
            android:layout_width="90dp"
@@ -26,15 +30,16 @@
            android:textColor="@color/textColorLight"
 
            />
+
        <TextView
            android:id="@+id/workerName_textView_serviceProviders_list_xml"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
+           android:layout_below="@id/workerType_textView_serviceProviders_list_xml"
            android:layout_marginLeft="5dp"
            android:layout_toRightOf="@id/workerImage_serviceProviders_list_xml"
-           android:layout_below="@id/workerType_textView_serviceProviders_list_xml"
            android:text="Shahzad Raza"
-           android:textColor="@color/textColor"/>
+           android:textColor="@color/textColor" />
 
        <TextView
            android:id="@+id/hourlyRate_textView_serviceProviders_list_xml"
@@ -43,7 +48,6 @@
            android:layout_marginLeft="5dp"
            android:layout_toRightOf="@id/workerImage_serviceProviders_list_xml"
            android:layout_below="@id/workerName_textView_serviceProviders_list_xml"
-           android:text="Rs. 200 / hr"
            android:textStyle="bold"
            android:textColor="@color/textColor"/>
 
@@ -62,6 +66,7 @@
            android:text="(05)"
            android:layout_marginLeft="42dp"
            android:gravity="center"
+           android:id="@+id/workerAverageRaing_textView_serviceProviider_xml"
            android:layout_below="@id/workerRating_ratingBar_serviceProviders_list_xml"
 
            />
@@ -92,6 +97,7 @@
            android:layout_height="30dp"
            android:text="Hire Now"
            android:textColor="#ffffff"
+           android:id="@+id/hireNow_Button_serviceProvider_list_row"
            android:textAllCaps="false"
            android:background="@drawable/filled_btn2"
            android:layout_alignParentRight="true"

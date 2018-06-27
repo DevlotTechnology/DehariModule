@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "149941008111",
+    "firebase_url": "https://deharimodule.firebaseio.com",
+    "project_id": "deharimodule",
+    "storage_bucket": "deharimodule.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:149941008111:android:4d8a123913c567c3",
+        "android_client_info": {
+          "package_name": "com.nfg.devlot.dehari"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "149941008111-42v8ac9q68r5dskc8n00gl9nm99vq4ei.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nfg.devlot.dehari",
+            "certificate_hash": "628067d27f5802039bdf426da50896c78f233c23"
+          }
+        },
+        {
+          "client_id": "149941008111-300dv9euf90aok9f6rdomi2ec3kvh6j2.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "149941008111-300dv9euf90aok9f6rdomi2ec3kvh6j2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsw3f3FuKqiTBI7IU0egAZ1BhTcryKrsQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "149941008111-300dv9euf90aok9f6rdomi2ec3kvh6j2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

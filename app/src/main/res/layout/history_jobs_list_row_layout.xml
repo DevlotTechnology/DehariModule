@@ -10,7 +10,6 @@
             android:id="@+id/coverImage_historyJobList_xml"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:src="@drawable/electrician"
             android:adjustViewBounds="true"
             android:scaleType="fitXY"/>
 
